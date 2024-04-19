@@ -36,6 +36,7 @@ public class PageInscrire extends BaseTools {
     }
 
     public void remplirleChampsFormulaire(String nom, String email, String telephone, String motDePasse, String confirmationMotDePasse) {
+        System.out.println("Remplissage de formulaire");
         waitAndSendKeys(champsName,nom,default_time);
 
         waitAndSendKeys(champsEmail,email,default_time);
@@ -45,35 +46,45 @@ public class PageInscrire extends BaseTools {
         waitAndSendKeys(champsPassword,motDePasse,default_time);
 
         waitAndSendKeys(ChampsPasswordConfirm,confirmationMotDePasse,default_time);
+
     }
     // 6. Vérifier que le bouton «Créer un compte» est désactivé
     public boolean isBoutonCreerCompteDesactive() {
+        System.out.println("le bouton «Créer un compte» est désactivé");
         WebElement boutonCreerCompte = waitElementToBeVisible(BoutonCreerCompte,default_time);
         return boutonCreerCompte.isEnabled();
+
     }
     public String isNomAffiche() {
+        System.out.println("Le Nom Afficher");
         return waitAndGetTextFromInput(champsName,default_time);
     }
     //10.Vérifiezl’affichage du message d’erreur Veuillez
     public String getMessageErreurAffiche() {
+        System.out.println("l’affichage du message d’erreur Veuillez");
         return waitAndGetText(messageErreur,default_time);
     }
     public WebElement isMessageErreur(){
+        System.out.println("Message Erreur");
         return waitElementToBeVisible(messageErreur,default_time);
     }
     //11.Vérifiez que checkbox est toujours coché
     public void CocheeCheckbox() {
+        System.out.println("checkbox est toujours coché");
         waitAndClick(champsCheck,default_time);
     }
     public void ClickBoutonCreerCompte(){
+        System.out.println("Clicker sur le bouton Creer Compte");
         waitAndClick(BoutonCreerCompte,default_time);
     }
    //12.Vérifiez que le bouton «Créer un compte» est activé
     public boolean isBoutonCreerCompteActive() {
+        System.out.println("le bouton «Créer un compte» est activé");
         WebElement boutonCreerCompte = waitElementToBeVisible(BoutonCreerCompte,default_time);
         return boutonCreerCompte.isEnabled();
     }
     public Boolean isCheckboxCochee(){
+        System.out.println("le Checkbox est Cochee");
         WebElement checkbox = waitElementToBeVisible(champsCheck,default_time);
         return checkbox.isSelected();
     }
